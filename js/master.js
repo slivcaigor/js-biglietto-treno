@@ -1,5 +1,5 @@
 //Calcolo biglietto treno
-let distance, passengerAge, ticketPrice, discountUnder, discountOver, newTicketPriceUnder, newTicketPriceOver, priceUnder, priceOver;
+let distance, passengerAge, ticketPrice, discountUnder, discountOver, priceUnder, priceOver;
 const basePrice = "0.21";
 
 //Chiedere numero di KM da percorrere
