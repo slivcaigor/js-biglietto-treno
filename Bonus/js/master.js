@@ -23,7 +23,7 @@ function myFunction() {
     console.log("Sconto in €: " + (discountUnder.toFixed(2)));
 
   } else if (passengerAge > 17 && passengerAge < 66) {
-    alert("Il costo del tuo biglietto è di: " + ticketPrice + " €");
+    document.getElementById("pricing").innerHTML = `Il costo del tuo biglietto è di: ${ticketPrice.toFixed(2)} €`;
     console.log("Costo biglietto: " + ticketPrice);
 
   } else if (passengerAge > 65) {
@@ -37,11 +37,11 @@ function myFunction() {
 
   //Alert sconto applicato
   if (passengerAge < 18) {
-    alert("Il prezzo del tuo biglietto scontato è di: " + (priceUnder.toFixed(2)) + " €");
+    document.getElementById("pricing").innerHTML = `Il prezzo del tuo biglietto scontato è di: ${priceUnder.toFixed(2)} €`;
     console.log("Prezzo biglietto scontato: " + (priceUnder.toFixed(2)) + " €");
 
   } else if (passengerAge > 65) {
-    alert("Il prezzo del tuo biglietto scontato è di: " + (priceOver.toFixed(2)) + " €");
+    document.getElementById("pricing").innerHTML = `Il prezzo del tuo biglietto scontato è di: ${priceOver.toFixed(2)} €`;
     console.log("Prezzo biglietto scontato: " + (priceOver.toFixed(2)) + " €");
   }
 }
