@@ -17,10 +17,14 @@ function myFunction() {
   discountUnder = ((ticketPrice / 100) * 20);
   discountOver = ((ticketPrice / 100) * 40);
 
+  //Calcolo costo biglietto scontato
+  priceUnder = (ticketPrice - discountUnder);
+  priceOver = (ticketPrice - discountOver);
+
   //Alert sconto ricevuto
   if (passengerAge < 18) {
     alert("Hai diritto ad uno sconto del 20% ovvero: " + (discountUnder.toFixed(2)) + " €");
-    console.log("Sconto in €: " + (discountUnder.toFixed(2)));
+    document.getElementById("pricing").innerHTML = `Il prezzo del tuo biglietto scontato è di: ${priceUnder.toFixed(2)} €`;
 
   } else if (passengerAge > 17 && passengerAge < 66) {
     document.getElementById("pricing").innerHTML = `Il costo del tuo biglietto è di: ${ticketPrice.toFixed(2)} €`;
@@ -28,20 +32,6 @@ function myFunction() {
 
   } else if (passengerAge > 65) {
     alert("Hai diritto ad uno sconto del 40% ovvero: " + (discountOver.toFixed(2)) + " €");
-    console.log("Sconto in €: " + (discountOver.toFixed(2)));
-  }
-
-  //Calcolo costo biglietto scontato
-  priceUnder = (ticketPrice - discountUnder);
-  priceOver = (ticketPrice - discountOver);
-
-  //Alert sconto applicato
-  if (passengerAge < 18) {
-    document.getElementById("pricing").innerHTML = `Il prezzo del tuo biglietto scontato è di: ${priceUnder.toFixed(2)} €`;
-    console.log("Prezzo biglietto scontato: " + (priceUnder.toFixed(2)) + " €");
-
-  } else if (passengerAge > 65) {
     document.getElementById("pricing").innerHTML = `Il prezzo del tuo biglietto scontato è di: ${priceOver.toFixed(2)} €`;
-    console.log("Prezzo biglietto scontato: " + (priceOver.toFixed(2)) + " €");
   }
 }
