@@ -1,6 +1,7 @@
 //Calcolo biglietto treno
 let distance, passengerAge, ticketPrice, discountUnder, discountOver, priceUnder, priceOver;
 const basePrice = "0.21";
+const element = document.getElementById("pricing");
 
 //Chiedere numero di KM da percorrere
 distance = parseInt(prompt("Inserisci qua sotto quanti KM devi percorrere"));
@@ -22,13 +23,12 @@ priceOver = (ticketPrice - discountOver);
 //Alert sconto ricevuto
 if (passengerAge < 18) {
   alert("Hai diritto ad uno sconto del 20% ovvero: " + (discountUnder.toFixed(2)) + " €");
-  document.getElementById("pricing").innerHTML = `Il prezzo del tuo biglietto scontato è di: ${priceUnder.toFixed(2)} €`;
+  element.innerHTML = `Il prezzo del tuo biglietto scontato è di: ${priceUnder.toFixed(2)} €`;
 
 } else if (passengerAge > 17 && passengerAge < 66) {
-  document.getElementById("pricing").innerHTML = `Il costo del tuo biglietto è di: ${ticketPrice.toFixed(2)} €`;
-  console.log("Costo biglietto: " + ticketPrice);
+  element.innerHTML = `Il costo del tuo biglietto è di: ${ticketPrice.toFixed(2)} €`;
 
 } else if (passengerAge > 65) {
   alert("Hai diritto ad uno sconto del 40% ovvero: " + (discountOver.toFixed(2)) + " €");
-  document.getElementById("pricing").innerHTML = `Il prezzo del tuo biglietto scontato è di: ${priceOver.toFixed(2)} €`;
+  element.innerHTML = `Il prezzo del tuo biglietto scontato è di: ${priceOver.toFixed(2)} €`;
 }
