@@ -1,37 +1,44 @@
+//Calcolo biglietto treno
+let distance, passengerAge, ticketPrice, discountUnder, discountOver, priceUnder, priceOver, message;
+const basePrice = "0.21";
+const calculate = document.querySelector(".calculate");
 
-function myFunction() {
-  //Calcolo biglietto treno
-  let distance, passengerAge, ticketPrice, discountUnder, discountOver, priceUnder, priceOver;
-  const basePrice = "0.21";
-  const element = document.getElementById("pricing");
+calculate.addEventListener("click",
 
-  //Chiedere numero di KM da percorrere
-  distance = parseInt(prompt("Inserisci qua sotto quanti KM devi percorrere"));
+  function () {
 
-  //Chiedere l'eta' del passeggero
-  passengerAge = parseInt(prompt("Inserisci qua sotto quanti anni hai"));
+    //Chiedere numero di KM da percorrere
+    distance = parseInt(prompt("Inserisci qua sotto quanti KM devi percorrere"));
 
-  //Il prezzo e' definito in base ai KM (0.21€ al KM)
-  ticketPrice = basePrice * distance;
+    //Chiedere l'eta' del passeggero
+    passengerAge = parseInt(prompt("Inserisci qua sotto quanti anni hai"));
 
-  // Variabili dello sconto applicato
-  discountUnder = ((ticketPrice / 100) * 20);
-  discountOver = ((ticketPrice / 100) * 40);
+    //Il prezzo e' definito in base ai KM (0.21€ al KM)
+    ticketPrice = basePrice * distance;
 
-  //Calcolo costo biglietto scontato
-  priceUnder = (ticketPrice - discountUnder);
-  priceOver = (ticketPrice - discountOver);
+    // Variabili dello sconto applicato
+    discountUnder = ((ticketPrice / 100) * 20);
+    discountOver = ((ticketPrice / 100) * 40);
 
-  //Alert sconto ricevuto
-  if (passengerAge < 18) {
-    alert("Hai diritto ad uno sconto del 20% ovvero: " + (discountUnder.toFixed(2)) + " €");
-    element.innerHTML = `Il prezzo del tuo biglietto scontato è di: ${priceUnder.toFixed(2)} €`;
+    // //Calcolo costo biglietto scontato
+    priceUnder = (ticketPrice - discountUnder);
+    priceOver = (ticketPrice - discountOver);
 
-  } else if (passengerAge > 17 && passengerAge < 66) {
-    element.innerHTML = `Il costo del tuo biglietto è di: ${ticketPrice.toFixed(2)} €`;
+    //Alert sconto ricevuto
+    if (passengerAge < 18) {
+      alert("Hai diritto ad uno sconto del 20% ovvero: " + (discountUnder.toFixed(2)) + " €");
+      message = `Il prezzo del tuo biglietto scontato è di: ${priceUnder.toFixed(2)} €`;
 
-  } else if (passengerAge > 65) {
-    alert("Hai diritto ad uno sconto del 40% ovvero: " + (discountOver.toFixed(2)) + " €");
-    element.innerHTML = `Il prezzo del tuo biglietto scontato è di: ${priceOver.toFixed(2)} €`;
+    } else if (passengerAge > 17 && passengerAge < 66) {
+      message = `Il costo del tuo biglietto è di: ${ticketPrice.toFixed(2)} €`;
+
+    } else if (passengerAge > 65) {
+      alert("Hai diritto ad uno sconto del 40% ovvero: " + (discountOver.toFixed(2)) + " €");
+      message = `Il prezzo del tuo biglietto scontato è di: ${priceOver.toFixed(2)} €`;
+    }
+
+    document.getElementById('pricing').innerHTML = message;
   }
-}
+);
+
+
